@@ -1,0 +1,133 @@
+package hawkerControl;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
+import ConnectionDB.ConnectionDB;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+
+public class HawkerControlController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private ImageView imgAadhar;
+
+    @FXML
+    private TextField txtMob;
+
+    @FXML
+    private TextField txtAdderess;
+
+    @FXML
+    private TextField txtSalary;
+
+    @FXML
+    private ListView<String> listAreas;
+
+    @FXML
+    private ComboBox<String> comboName;
+
+    @FXML
+    private Label lblInfo;
+
+    @FXML
+    void setAadhar(ActionEvent event) {
+    	
+    	//getting file as choosed
+    	FileChooser img=new FileChooser();
+    	img.getExtensionFilters().add(new ExtensionFilter("image","*.jpg","*.png","*.JPG","*.jpeg","*.gif"));
+    	File selected=img.showOpenDialog(null);
+    	imgPath=selected.getPath();
+    	
+		try {
+			
+			//showing preview of file in ImgViewer
+			InputStream pic = new FileInputStream(selected);
+			Image preview=new Image(pic);
+			imgAadhar.setImage(preview);
+//			System.out.println(selected.getPath());
+//			System.out.println(selected.getName());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			System.out.println("Image Not Found "+e.getMessage());
+			lblInfo.setText("Image not Found");
+		}
+    	
+    	
+
+    }
+
+    @FXML
+    void setAreaList(KeyEvent event) {
+
+    }
+
+    @FXML
+    void setNew(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setRemove(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doClear(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setUpdate(ActionEvent event) {
+
+    }
+    @FXML
+    void doAddArea(ActionEvent event) {
+
+    }
+    Connection com=null;
+    PreparedStatement stmt=null;
+    String imgPath=null;
+    void getNameList()
+    {
+    	
+    }
+
+    @FXML
+    void initialize() {
+    	Connection com=ConnectionDB.getConnection();
+    	listAreas.getItems().addAll(Arrays.asList("flo","stu"));
+        
+    	assert imgAadhar != null : "fx:id=\"imgAadhar\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert txtMob != null : "fx:id=\"txtMob\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert txtAdderess != null : "fx:id=\"txtAdderess\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert txtSalary != null : "fx:id=\"txtSalary\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert listAreas != null : "fx:id=\"listAreas\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert comboName != null : "fx:id=\"comboName\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+        assert lblInfo != null : "fx:id=\"lblInfo\" was not injected: check your FXML file 'HawkerControl.fxml'.";
+
+    }
+}
