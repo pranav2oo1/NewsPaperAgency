@@ -14,9 +14,12 @@ public class ConnectionDB {
 			{
 				System.out.println("Connection Established Successfully");
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
+			
 		}
 		
 		return com;

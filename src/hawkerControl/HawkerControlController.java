@@ -77,9 +77,9 @@ public class HawkerControlController {
     	txtAdderess.setText("");;
     	txtSalary.setText("");;
     	listArea.getItems().setAll(Arrays.asList(""));
-    	comboName.getEditor().setText("");
+    	comboName.getSelectionModel().clearSelection();
     	lblInfo.setText("");
-    	comboArea.getSelectionModel().select(-1);
+    	comboArea.getSelectionModel().clearSelection();
     	
     	
     }
@@ -344,50 +344,60 @@ public class HawkerControlController {
 
     String saveImg(String path,String name)
     {
-    	//extracting name of image from name and path
-    	int lastIndexOf = path.lastIndexOf(".");
-        if (lastIndexOf == -1) {
-            return null; // empty extension
-        }
-        String extension=path.substring(lastIndexOf);//return ".png"
-    	String copyName=name.replaceAll("\\s+", "");//removes all whitespace from name
-    	String copyPath="images/"+copyName+extension;//copy to images folder in the current location of database
-    	
-    	//copy file to a folder of images in program		
-    	File imgFile=new File(path);
-    	File des=new File(copyPath);
-//    	System.out.println(des.getAbsolutePath());
-//    	System.out.println(imgFile.getPath());
-    	FileOutputStream copyStream=null;
-    	FileInputStream imgStream=null;
-    	path=null;
     	try {
-			copyStream=new FileOutputStream(des);
-			imgStream = new FileInputStream(imgFile);
-			int bit;
-			while((bit=imgStream.read())!=-1) {
-				copyStream.write(bit);
-			}
-			path=copyPath;
-			
-			System.out.println("Image copied Successfully..");
-			lblInfo.setText("Image copied Successfully..");
-			
-		} 
-		catch (FileNotFoundException e) {
-			//e.printStackTrace();
-			System.out.println("Failed to copy Image "+e.getMessage());
-			lblInfo.setText("Failed to copy Image");
-		}
-		catch (IOException e) {
-			//e.printStackTrace();
-			System.out.println("Failed to copy Image "+e.getMessage());
-			lblInfo.setText("Failed to copy Image");
-		}
-    	
-    	//return path if everything is successful else null is returned,and img address is received only if path is not null,in getRecord
-    	return path;
+    		//extracting name of image from name and path
+        	int lastIndexOf = path.lastIndexOf(".");
+            if (lastIndexOf == -1) {
+                return null; // empty extension
+            }
+            String extension=path.substring(lastIndexOf);//return ".png"
+        	String copyName=name.replaceAll("\\s+", "");//removes all whitespace from name
+        	String copyPath="images/"+copyName+extension;//copy to images folder in the current location of database
+        	
+        	//copy file to a folder of images in program		
+        	File imgFile=new File(path);
+        	File des=new File(copyPath);
+//        	System.out.println(des.getAbsolutePath());
+//        	System.out.println(imgFile.getPath());
+        	FileOutputStream copyStream=null;
+        	FileInputStream imgStream=null;
+        	path=null;
+        	try {
+    			copyStream=new FileOutputStream(des);
+    			imgStream = new FileInputStream(imgFile);
+    			int bit;
+    			while((bit=imgStream.read())!=-1) {
+    				copyStream.write(bit);
+    			}
+    			path=copyPath;
+    			
+    			System.out.println("Image copied Successfully..");
+    			lblInfo.setText("Image copied Successfully..");
+    			
+    		} 
+    		catch (FileNotFoundException e) {
+    			//e.printStackTrace();
+    			System.out.println("Failed to copy Image "+e.getMessage());
+    			lblInfo.setText("Failed to copy Image");
+    		}
+    		catch (IOException e) {
+    			//e.printStackTrace();
+    			System.out.println("Failed to copy Image "+e.getMessage());
+    			lblInfo.setText("Failed to copy Image");
+    		}
+        	
+        	//return path if everything is successful else null is returned,and img address is received only if path is not null,in getRecord
+        	return path;
 
+    		
+    	}
+    	catch(NullPointerException e)
+    	{
+    		System.out.println("no image selected yet "+e.getMessage() );
+    		lblInfo.setText("no image selected yet");
+    		return null;
+    	}
+    	
     }
     boolean deleteImg(String name)
     {
@@ -437,6 +447,7 @@ public class HawkerControlController {
 			stmt=com.prepareStatement("select name from hawkers where 1");
 			ResultSet table=stmt.executeQuery();
 			ArrayList<String> nameList=new ArrayList<String>();
+			
 			while(table.next())
 			{
 				nameList.add(table.getString("name"));
@@ -446,7 +457,7 @@ public class HawkerControlController {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+			e.printStackTrace();
 			System.out.println("Error in fetching nameList "+e.getMessage());
 		}
     }
