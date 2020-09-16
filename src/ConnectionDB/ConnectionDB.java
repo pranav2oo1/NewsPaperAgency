@@ -17,7 +17,9 @@ public class ConnectionDB {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
+
+			System.out.println("No Connection. "+e.getMessage());
 			System.exit(1);
 			
 		}

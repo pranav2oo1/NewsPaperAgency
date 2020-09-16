@@ -292,7 +292,8 @@ public class BillGeneratorController {
 		//if successful then change the date
 		//changing date in customers table
 		changeDateInCustomer(mobile);
-		
+		String success=sms.SST_SMS.bceSunSoftSend(mobile,"Your pending Bill amount is "+bill+". For any queries contact 9******89.");
+		System.out.println(success);
 		return 1;
     }
     void changeDateInCustomer(String mobile) throws SQLException

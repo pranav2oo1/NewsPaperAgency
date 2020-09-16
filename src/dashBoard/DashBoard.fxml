@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashBoard.DashBoardController">
+   <children>
+      <Label layoutX="216.0" layoutY="22.0" prefHeight="32.0" prefWidth="174.0" text="DashBoard">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="20.0" layoutY="82.0" onMouseClicked="#openBillCollector" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="42.0" layoutY="220.0" text="Bill Collector" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="175.0" layoutY="82.0" onMouseClicked="#openBillGenerator" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="193.0" layoutY="220.0" text="Bill Generator" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="325.0" layoutY="82.0" onMouseClicked="#openBillHistory" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="357.0" layoutY="220.0" text="Bill History" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="475.0" layoutY="82.0" onMouseClicked="#openPaperMaster" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="495.0" layoutY="220.0" text="Paper Master" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="18.0" layoutY="260.0" onMouseClicked="#openCustomerDispay" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="4.0" layoutY="398.0" text="Customer Display Board" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="173.0" layoutY="260.0" onMouseClicked="#openHawkerControl" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="188.0" layoutY="398.0" text="Hawker Control" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="323.0" layoutY="260.0" onMouseClicked="#openHawkerDisplay" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="342.0" layoutY="398.0" text="Hawker Display" />
+      <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="473.0" layoutY="260.0" onMouseClicked="#openCustomer" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Pranav.png" />
+         </image></ImageView>
+      <Label layoutX="506.0" layoutY="398.0" text="Customer" />
+      <Label layoutX="144.0" layoutY="437.0" text="Info:" />
+      <Label fx:id="lblInfo" layoutX="175.0" layoutY="437.0" prefHeight="0.0" prefWidth="394.0" />
+   </children>
+</AnchorPane>

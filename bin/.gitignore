@@ -1,6 +1,12 @@
 /ConnectionDB/
-/billGenerator/
-/customer/
-/hawkerControl/
-/paperMaster/
 /billCollector/
+/billGenerator/
+/billHistory/
+/costumerDispayBoard/
+/customer/
+/dashBoard/
+/hawkerControl/
+/hawkerDisplayBoard/
+/paperMaster/
+/sms/
+/costumerDisplayBoard/

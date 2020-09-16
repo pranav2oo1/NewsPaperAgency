@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="costumerDisplayBoard.CostumerDisplayController">
+   <children>
+      <Label layoutX="82.0" layoutY="14.0" prefHeight="26.0" prefWidth="283.0" text="Customer Display Board">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="548.0" text="Info:" />
+      <Label fx:id="lblInfo" layoutX="63.0" layoutY="548.0" prefHeight="16.0" prefWidth="349.0" text="" />
+      <Label layoutX="51.0" layoutY="53.0" text="Area" />
+      <Label layoutX="244.0" layoutY="53.0" text="Papers" />
+      <ComboBox fx:id="comboArea" editable="true" layoutX="48.0" layoutY="69.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboPaper" editable="true" layoutX="244.0" layoutY="69.0" prefWidth="150.0" />
+      <ButtonBar layoutX="114.0" layoutY="100.0" prefHeight="45.0" prefWidth="177.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#getSortedRecords" text="Sort" />
+            <Button mnemonicParsing="false" onAction="#getAllRecords" text="Fetch All" />
+        </buttons>
+      </ButtonBar>
+      <TableView fx:id="tblRecords" layoutX="37.0" layoutY="162.0" prefHeight="343.0" prefWidth="373.0" />
+      <Button layoutX="106.0" layoutY="513.0" mnemonicParsing="false" onAction="#setExcel" text="Export to Excel" />
+      <Button layoutX="244.0" layoutY="513.0" mnemonicParsing="false" onAction="#openExcel" text="Open Excel" />
+   </children>
+</AnchorPane>
